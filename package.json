@@ -1,0 +1,16 @@
+{
+  "name": "dodo-checkout-assignment",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:demo": "npm run dev --workspace=@dodo/demo",
+    "dev:checkout": "npm run dev --workspace=@dodo/checkout",
+    "build:demo": "npm run build --workspace=@dodo/demo",
+    "build:checkout": "npm run build --workspace=@dodo/checkout",
+    "build:sdk": "npm run build --workspace=@dodo/sdk"
+  }
+}
