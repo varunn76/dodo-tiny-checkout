@@ -76,7 +76,9 @@ export function open(options: DodoCheckoutOptions): void {
   activeOptions = options;
   isBusy = false;
 
-  const baseUrl = options.checkoutUrl ?? "http://localhost:3001";
+  const rawBaseUrl =
+    options.checkoutUrl ?? "https://dodo-tiny-checkout-checkout.vercel.app";
+  const baseUrl = rawBaseUrl.replace(/\/+$/, "");
   try {
     expectedOrigin = new URL(baseUrl).origin;
   } catch {

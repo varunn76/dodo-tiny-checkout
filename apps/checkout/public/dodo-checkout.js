@@ -1,6 +1,5 @@
 "use strict";
 (() => {
-  // src/dodo-checkout.ts
   var activeIframe = null;
   var activeOptions = null;
   var expectedOrigin = null;
@@ -59,14 +58,18 @@
     }
     activeOptions = options;
     isBusy = false;
-    const baseUrl = options.checkoutUrl ?? "http://localhost:3001";
+    const rawBaseUrl =
+      options.checkoutUrl ?? "https://dodo-tiny-checkout-checkout.vercel.app";
+    const baseUrl = rawBaseUrl.replace(/\/+$/, "");
     try {
       expectedOrigin = new URL(baseUrl).origin;
     } catch {
       expectedOrigin = null;
     }
     const iframe = document.createElement("iframe");
-    const url = options.productId ? `${baseUrl}?productId=${encodeURIComponent(options.productId)}` : baseUrl;
+    const url = options.productId
+      ? `${baseUrl}?productId=${encodeURIComponent(options.productId)}`
+      : baseUrl;
     iframe.src = url;
     iframe.title = "Dodo Checkout";
     iframe.allow = "payment";
@@ -95,7 +98,7 @@
     activeIframe.remove();
     activeIframe = null;
     activeOptions?.onClose?.({
-      reason
+      reason,
     });
     activeOptions = null;
     expectedOrigin = null;
@@ -107,12 +110,11 @@
   var DodoCheckout = {
     open,
     close,
-    isOpen
+    isOpen,
   };
   if (typeof window !== "undefined") {
     window.DodoCheckout = DodoCheckout;
   }
 
-  // src/index.ts
   var src_default = DodoCheckout;
 })();

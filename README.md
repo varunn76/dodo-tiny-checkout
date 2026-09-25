@@ -23,8 +23,9 @@ npm run dev:demo
 Open:
 
 - Demo Store: http://localhost:3000
-- Checkout App: http://localhost:3001
-- SDK: http://localhost:3001/dodo-checkout.js
+- Checkout App (Local): http://localhost:3001
+- Checkout App (Production): https://dodo-tiny-checkout-checkout.vercel.app
+- SDK (Production): https://dodo-tiny-checkout-checkout.vercel.app/dodo-checkout.js
 
 ## How It Works
 
@@ -53,7 +54,7 @@ Demo Store
 The merchant loads the SDK using a normal script:
 
 ```html
-<script src="http://localhost:3001/dodo-checkout.js"></script>
+<script src="https://dodo-tiny-checkout-checkout.vercel.app/dodo-checkout.js"></script>
 ```
 
 ### 2. Open Checkout

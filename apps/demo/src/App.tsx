@@ -44,15 +44,6 @@ export function App() {
     });
   };
 
-  const handleCloseSDK = () => {
-    if (window.DodoCheckout?.isOpen()) {
-      addEvent("Calling DodoCheckout.close()...");
-      window.DodoCheckout.close();
-    } else {
-      addEvent("Checkout is not currently open.");
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-slate-50">
       <header className="mb-8 text-center">
