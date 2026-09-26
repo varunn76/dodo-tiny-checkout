@@ -44,6 +44,14 @@ export const Checkout = ({
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (!isProcessing && !isSuccess && onClose) {
+          e.preventDefault();
+          onClose();
+        }
+        return;
+      }
+
       if (e.key === "Tab") {
         const elements = modal.querySelectorAll<HTMLElement>(
           'input:not([disabled]), button:not([disabled]), [tabindex="0"]',
@@ -69,7 +77,7 @@ export const Checkout = ({
 
     modal.addEventListener("keydown", handleKeyDown);
     return () => modal.removeEventListener("keydown", handleKeyDown);
-  }, [isSuccess]);
+  }, [isSuccess, isProcessing, onClose]);
 
   return (
     <div

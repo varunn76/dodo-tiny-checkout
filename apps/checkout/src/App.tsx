@@ -38,6 +38,17 @@ export function App() {
     sendToParent("checkout:close", { reason: "user_closed" });
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [status]);
+
   const handleClearError = () => {
     if (status === "error") {
       setErrorMessage(null);
@@ -67,7 +78,6 @@ export function App() {
     const isRetry = status === "error";
     setStatus(isRetry ? "retrying" : "processing");
     setErrorMessage(null);
-
     sendToParent("checkout:processing");
 
     try {
