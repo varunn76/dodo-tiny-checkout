@@ -128,7 +128,7 @@ export function App() {
                   d="M5 13l4 4L19 7"
                 />
               </svg>
-              Instant webhook & postMessage events
+              Instant success, error & close events
             </li>
           </ul>
 
