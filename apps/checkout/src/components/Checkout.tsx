@@ -80,7 +80,6 @@ export const Checkout = ({
       aria-describedby="checkout-desc"
       className="w-full sm:max-w-md max-h-[95vh] flex flex-col bg-white rounded-t-3xl sm:rounded-2xl shadow-2xl border border-slate-200/80 overflow-hidden animate-scaleUp transition-all"
     >
-      {/* Header */}
       <div className="px-6 pt-5 pb-4 border-b border-slate-100 flex items-center justify-between flex-shrink-0">
         <div>
           <h2
@@ -108,8 +107,6 @@ export const Checkout = ({
           </button>
         )}
       </div>
-
-      {/* Body */}
       <div className="p-6 overflow-y-auto flex-1">
         {isSuccess ? (
           <div className="py-8 flex flex-col items-center justify-center text-center space-y-4">
@@ -151,7 +148,6 @@ export const Checkout = ({
         )}
       </div>
 
-      {/* Trust & Security footer */}
       <div className="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-center text-xs text-slate-500 flex-shrink-0">
         <LockIcon className="w-3.5 h-3.5 text-emerald-600 mr-1.5 flex-shrink-0" />
         <span className="truncate">
